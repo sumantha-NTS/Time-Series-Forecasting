@@ -1,12 +1,8 @@
 import pandas as pd
 import streamlit as st
-import pickle
 import statsmodels.api as sm 
 import datetime
 import plotly.express as px
-
-model = pickle.load(open('model.pkl','rb'))
-
 
 def main():
     st.title("Forecasting the Particulate Matter (PM)")
@@ -15,7 +11,7 @@ def main():
     uploaded_file = st.sidebar.file_uploader("Choose a file")
     if uploaded_file is not None:
         df = pd.read_excel(uploaded_file,index_col=0,parse_dates=True)
-        model1 = sm.tsa.statespace.SARIMAX(df,order=(1,0,1),seasonal_order=(1,0,1,24)).fit()
+        model = sm.tsa.statespace.SARIMAX(df,order=(1,0,1),seasonal_order=(1,0,1,24)).fit()
         
         #b1, b2, b3 = st.beta_columns(3)
         if st.sidebar.button('Dataset Detils'): 
@@ -39,12 +35,10 @@ def main():
             new = pd.DataFrame(m,columns=['Date'])
             new.set_index("Date", inplace = True)
             df_new = pd.concat([df,new],axis=0)
-            df_new['forecast'] = model1.predict(start=len(df),end=len(df)+24)
+            df_new['forecast'] = model.predict(start=len(df),end=len(df)+24)
             
             fig = px.line(df_new, x=df_new.index, y = df_new.columns,width =1000, title='Forecasting For next 24 Hours')
             st.plotly_chart(fig)
-
-            st.write(df_new)
         
         
         if st.sidebar.button('AQI Standards'):
