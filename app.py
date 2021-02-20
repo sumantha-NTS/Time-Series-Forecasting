@@ -7,7 +7,7 @@ import plotly.express as px
 def main():
     st.title("Forecasting the Particulate Matter (PM)")
     
-    st.sidebar.header('Importing the CSV file')
+    st.sidebar.header('Upload CSV file')
     uploaded_file = st.sidebar.file_uploader("Choose a file")
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file,index_col=0,parse_dates=True)
