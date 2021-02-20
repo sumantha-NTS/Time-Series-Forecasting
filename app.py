@@ -39,13 +39,6 @@ def main():
             
             fig = px.line(df_new, x=df_new.index, y = df_new.columns,width =1000, title='Forecasting For next 24 Hours')
             st.plotly_chart(fig)
-        
-        
-        if st.sidebar.button('AQI Standards'):
-            from PIL import Image
-            image = Image.open('AQI.jpg')
-            st.header('AQI Standards')
-            st.image(image)
 
 if __name__=='__main__':
     main()
