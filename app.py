@@ -10,7 +10,7 @@ def main():
     st.sidebar.header('Importing the CSV file')
     uploaded_file = st.sidebar.file_uploader("Choose a file")
     if uploaded_file is not None:
-        df = pd.read_excel(uploaded_file,index_col=0,parse_dates=True)
+        df = pd.read_csv(uploaded_file,index_col=0,parse_dates=True)
         model = sm.tsa.statespace.SARIMAX(df,order=(1,0,1),seasonal_order=(1,0,1,24)).fit()
         
         #b1, b2, b3 = st.beta_columns(3)
