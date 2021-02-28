@@ -34,12 +34,13 @@ The model with least **RMSE** value is considered for deployment.
 |AR                | 64.46   |    73.30   |    65.10  |
 |ARMA (4,0,4)      | 82.17   |    62.25   |    78.66|
 |ARIMA (4,1,4)     | 119.84  |    116.68   |    120.65  | 
-|SARIMA (1,0,1,24) | 42.60   |    46.30    |    **37.37**  |
+|SARIMA (1,0,1,24) | 42.60   |    46.30    |    *37.37*  |
 |SimpleExpSmoothing| 69.71   |    69.70   |    69.70  |
 |Holt method       | 69.85   |    70.06  |    69.92  |
 |Exponential Add   | 48.92   |    42.98   |    47.86  |
 |Exponential Mul   | 76.47   |    73.31    |    77.55  |
 
+From the above table, it is observed that the **SARIMA** model has least RMSE value. Hence it is considered for forecasting.
 ## Model Deployment:
 I have used **Streamlit** library and **Heroku** platform to deploy the app.\
 App URL :https://forecasting-pm.herokuapp.com/
