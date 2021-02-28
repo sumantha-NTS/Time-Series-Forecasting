@@ -28,8 +28,8 @@ Different time series models considered for forecasting are as follows,
 ## Model Evaluation:
 All the models with all different imputation techniques which are mentioned above are considered for forecasting with evaluation metric as **RMSE**.\
 The model with least **RMSE** value is considered for deployment.
-| Model Name       | RMSE   | RMSE |RMSE                                          |
-| Model Name       | Interpolate with time | Impute with mean | Impute with previous day data |
+|Model Name       | RMSE   | RMSE2 |RMSE 3                                         |
+|Model Name  1     | Interpolate with time | Impute with mean | Impute with previous day data |
 |:----------------:|:---------------------:|:----------:|:---------:|
 |AR                | Linear Regression   |    0.439   |    64.60  |
 |ARMA (4,0,4)      | Ridge               |    0.44    |    64.56  |
