@@ -27,19 +27,18 @@ Different time series models considered for forecasting are as follows,
 
 ## Model Evaluation:
 All the models with all different imputation techniques which are mentioned above are considered for forecasting with evaluation metric as **RMSE**.\
-The model with least **RMSE** value is considered for deployment.\
+The model with least **RMSE** value is considered for deployment.
 
-|Model Name       | RMSE   |
+| Model Name  | Interpolate with time | Impute with mean | Impute with previous day data |
 |:----------------:|:---------------------:|:----------:|:---------:|
-|   | **Interpolate with time** | **Impute with mean** | **Impute with previous day data** |
-|AR                | Linear Regression   |    0.439   |    64.60  |
-|ARMA (4,0,4)      | Ridge               |    0.44    |    64.56  |
-|ARIMA (4,1,4)     | Lasso               |    0.44    |    64.56  | 
-|SARIMA (1,0,1,24) | KNN                 |    0.42    |    67.56  |
-|SimpleExpSmoothing| Decision Tree       |    0.374   |    74.38  |
-|Holt method       | XG Boost            |    0.314   |    81.87  |
-|Exponential Add   | Random Forest       |    0.343   |    78.45  |
-|Exponential Mul   | Neural Network      |    0.48    |    57.73  |
+|AR                | 64.46   |    73.30   |    65.10  |
+|ARMA (4,0,4)      | 82.17   |    62.25   |    78.66|
+|ARIMA (4,1,4)     | 119.84  |    116.68   |    120.65  | 
+|SARIMA (1,0,1,24) | 42.60   |    46.30    |    **37.37**  |
+|SimpleExpSmoothing| 69.71   |    69.70   |    69.70  |
+|Holt method       | 69.85   |    70.06  |    69.92  |
+|Exponential Add   | 48.92   |    42.98   |    47.86  |
+|Exponential Mul   | 76.47   |    73.31    |    77.55  |
 
 ## Model Deployment:
 I have used **Streamlit** library and **Heroku** platform to deploy the app.\
